@@ -13,6 +13,7 @@ out/
 
 # eclipse
 *.launch
+logs/
 
 # vscode
 
@@ -24,4 +25,5 @@ bin/
 
 # fabric
 
+.fabric
 run/

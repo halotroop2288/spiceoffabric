@@ -94,7 +94,7 @@ public class FoodHistory {
 		compoundTag.put("dictionary", list);
 		ListTag historyList = new ListTag();
 		for(Integer id : history) {
-			historyList.add(IntTag.of(id));
+			historyList.add(new IntTag(id));
 		}
 		compoundTag.put("history", historyList);
 		if(carrotHistory != null) {
@@ -232,14 +232,14 @@ public class FoodHistory {
 				textOnPage.append(new LiteralText(number + ". ").setStyle(numberStyle)).append(new LiteralText(foodHistoryEntry.getName()).setStyle(itemStyle.copy().setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, new LiteralText(foodHistoryEntry.getItemStackSerialization()))).setBold(false))).append("\n");
 			number++; linesOnPage++;
 			if(linesOnPage >= 14) {
-				pages.add(StringTag.of(Text.Serializer.toJson(textOnPage)));
+				pages.add(new StringTag(Text.Serializer.toJson(textOnPage)));
 				linesOnPage = 0;
 				textOnPage = new LiteralText("");
 			}
 		}
 
 		if(linesOnPage > 0) {
-			pages.add(StringTag.of(Text.Serializer.toJson(textOnPage)));
+			pages.add(new StringTag(Text.Serializer.toJson(textOnPage)));
 		}
 
 		return pages;
